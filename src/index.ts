@@ -1,1 +1,1 @@
-console.log('Initialization App')
+console.log("Initialization App");

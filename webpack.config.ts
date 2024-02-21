@@ -1,32 +1,25 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-import path from 'path';
-import webpack from 'webpack';
+import path from "path";
+import webpack from "webpack";
 // in case you run into any typescript error when configuring `devServer`
-import 'webpack-dev-server';
+import "webpack-dev-server";
+import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
+import { BuildEnv, BuildPaths } from "./config/build/types/config";
 
-const config: webpack.Configuration  = {
-    entry: './src/index.ts',
-    mode:'development',
-    output: {
-        filename: '[name].[contenthash].js', // генерация уникального имени
-        path: path.resolve(__dirname, 'build'), // создание папки build
-        clean:true // чистка ненужных файлов после каждого билда
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
-        ],
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-    plugins: [new HtmlWebpackPlugin({
-        template: "public/index.html" // создание в папке build файла из папки public
-    }), new webpack.ProgressPlugin()],
+export default (env: BuildEnv) => {
+  const paths: BuildPaths = {
+    entry: "./src/index.ts",
+    build: path.resolve(__dirname, "build"),
+    html: "public/index.html",
+  };
+
+  const mode = env?.mode || "development";
+  const PORT = env?.port || 3000;
+
+  const config: webpack.Configuration = buildWebpackConfig({
+    mode,
+    paths,
+    port: PORT,
+  });
+
+  return config;
 };
-
-export default config;
