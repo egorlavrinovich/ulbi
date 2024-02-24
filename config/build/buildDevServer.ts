@@ -8,6 +8,5 @@ export const buildDevServer = (
   return {
     port,
     open: true,
-    static: "./build",
   };
 };

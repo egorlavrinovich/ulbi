@@ -8,7 +8,7 @@ import { buildDevServer } from "./buildDevServer";
 export const buildWebpackConfig = (
   options: BuildOptions
 ): webpack.Configuration => {
-  const { paths, mode } = options;
+  const { paths, mode, isDev } = options;
   return {
     entry: paths?.entry, // точка входа в приложение
     mode,
@@ -18,11 +18,11 @@ export const buildWebpackConfig = (
       clean: true, // чистка ненужных файлов после каждого билда
     },
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(options),
     },
     resolve: buildResolvers(),
     plugins: buildPlugins(paths),
-    devtool: "inline-source-map", // Определения в каких именно файлах возникли ошибки
+    devtool: isDev ? "inline-source-map" : undefined, // Определения в каких именно файлах возникли ошибки
     devServer: buildDevServer(options),
   };
 };
