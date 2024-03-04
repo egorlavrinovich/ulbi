@@ -3,12 +3,19 @@ import { Link, Route, Routes } from "react-router-dom";
 import AboutPageLazy from "./pages/AboutPage/AboutPagesLazy";
 import MainPageLazy from "./pages/MainPage/MainPageLazy";
 import { ThemeContext } from "./theme/ThemeContext";
+import { classNames } from "./helpers/classNames/classNames";
 
 const App = () => {
   const { theme, changeTheme } = useContext(ThemeContext);
 
   return (
-    <div className={`app ${theme}`}>
+    <div
+      className={classNames({
+        cls: "app",
+        mods: {},
+        additional: [theme],
+      })}
+    >
       <button onClick={changeTheme}>Toggle</button>
       <Suspense fallback={<div>Loading...</div>}>
         <Link to={"/"}>Main</Link>
