@@ -9,8 +9,16 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     // позволяет выполнять импорт файлов
-    "esModuleInterop": true
+    "esModuleInterop": true,
     // позволяет выполнять импорт файлов
+    "baseUrl": ".",
+    // используется для абсолютных путей
+    "paths": {
+      // используется для абсолютных путей
+      "*": [
+        "./src/*"
+      ]
+    }
   },
   "ts-node": {
     "compilerOptions": {

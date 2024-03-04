@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme } from "./ThemeContext";
-
-const DEFAULT_THEME =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+import { useContext } from "react";
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  Theme,
+  ThemeContext,
+} from "../../config/theme/ThemeContext";
 
 export const UseTheme = () => {
-  const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const changeTheme = () => {
     const resultTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
