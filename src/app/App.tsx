@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { classNames } from "shared/lib/classNames/classNames";
 import { UseTheme } from "shared/lib/theme/UseTheme";
 import AppRouter from "./providers/router/ui/AppRouter";
+import { NavBar } from "./widgets/NavBar";
 
 const App = () => {
   const { theme, changeTheme } = UseTheme();
@@ -14,9 +14,8 @@ const App = () => {
         additional: [theme],
       })}
     >
+      <NavBar />
       <button onClick={changeTheme}>Toggle</button>
-      <Link to={"/"}>Main</Link>
-      <Link to={"/about"}>About</Link>
       <AppRouter />
     </div>
   );

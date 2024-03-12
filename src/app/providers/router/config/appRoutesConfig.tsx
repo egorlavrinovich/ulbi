@@ -1,4 +1,3 @@
-import { AppRoutes } from "shared/config/routes/routes";
 import { appRoutesPaths } from "shared/config/routes/routes";
 import MainPage from "pages/MainPage/ui/MainPage";
 import AboutPage from "pages/AboutPage/ui/AboutPage";
@@ -10,7 +9,7 @@ export const appRoutesConfig: PathRouteProps[] = [
     element: <MainPage />,
   },
   {
-    path: appRoutesPaths.main,
+    path: appRoutesPaths.about,
     element: <AboutPage />,
   },
 ];

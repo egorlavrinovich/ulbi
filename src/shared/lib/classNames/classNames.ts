@@ -8,8 +8,8 @@ interface IClassNames<T> {
 
 export function classNames({
   cls,
-  additional,
-  mods,
+  additional = [],
+  mods = {},
 }: IClassNames<string>): string {
   return [
     cls,
