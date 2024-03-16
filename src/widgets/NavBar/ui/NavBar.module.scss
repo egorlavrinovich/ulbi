@@ -1,0 +1,9 @@
+.navbar_links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2%;
+  gap: 20px;
+  height: var(--navBar-height);
+  background-color: var(--inverted-color);
+}

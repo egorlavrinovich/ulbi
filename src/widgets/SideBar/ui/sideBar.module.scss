@@ -1,0 +1,26 @@
+.sideBar {
+  position: relative;
+  height: calc(100vh - var(--navBar-height));
+  background: var(--inverted-color);
+  transition: 0.3s ease;
+}
+
+.active {
+  width: 20vw;
+}
+
+.close {
+  width: 5vw;
+}
+
+.mainContent {
+
+}
+
+.switchers {
+  position: absolute;
+  width: 100%;
+  bottom: 2%;
+  display: flex;
+  justify-content: space-evenly;
+}

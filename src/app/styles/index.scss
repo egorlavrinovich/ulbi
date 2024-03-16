@@ -11,9 +11,18 @@
   min-height: 100vh;
 }
 
-.primary{
+.primary {
   color: var(--primary-color)
 }
-.secondary{
+
+.secondary {
   color: var(--secondary-color)
+}
+
+.main-content {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
 }
