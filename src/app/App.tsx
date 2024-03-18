@@ -1,3 +1,4 @@
+import {Suspense} from 'react';
 import {classNames} from "shared/lib/classNames/classNames";
 import {UseTheme} from "shared/lib/theme/UseTheme";
 import AppRouter from "./providers/router/ui/AppRouter";
@@ -8,18 +9,20 @@ const App = () => {
     const {theme} = UseTheme();
 
     return (
-        <div
-            className={classNames({
-                cls: "app",
-                additional: [theme],
-            })}
-        >
-            <NavBar/>
-            <div className='main-content'>
-                <SideBar/>
-                <AppRouter/>
+        <Suspense fallback="loading">
+            <div
+                className={classNames({
+                    cls: "app",
+                    additional: [theme],
+                })}
+            >
+                <NavBar/>
+                <div className='main-content'>
+                    <SideBar/>
+                    <AppRouter/>
+                </div>
             </div>
-        </div>
+        </Suspense>
     );
 };
 

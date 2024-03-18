@@ -1,7 +1,8 @@
 import React, {FC, useState} from "react";
 import {classNames} from "shared/lib/classNames/classNames";
 import classes from "./sideBar.module.scss";
-import ThemeSwitcher from "shared/Theme/ui/Theme";
+import ThemeSwitcher from "shared/ThemeSwitcher/ui/Theme";
+import LanguageSwitcher from "shared/LanguageSwitcher/ui/LanguageSwitcher";
 
 interface SideBarProps {
 
@@ -23,6 +24,7 @@ const SideBar: FC<SideBarProps> = ({children}) => {
             <div className={classNames({cls: classes.mainContent})}>{children}</div>
             <div className={classNames({cls: classes.switchers})}>
                 <ThemeSwitcher/>
+                {isOpen && <LanguageSwitcher/>}
             </div>
         </div>
     );

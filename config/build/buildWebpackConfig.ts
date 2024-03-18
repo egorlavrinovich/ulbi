@@ -21,7 +21,7 @@ export const buildWebpackConfig = (
             rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
-        plugins: buildPlugins(paths),
+        plugins: buildPlugins(paths, isDev),
         devtool: isDev ? "inline-source-map" : undefined, // Определения в каких именно файлах возникли ошибки
         devServer: buildDevServer(options),
     };
