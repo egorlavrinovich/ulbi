@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import {BuildPaths} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export const buildPlugins = (
     path: BuildPaths, isDev: boolean
@@ -18,6 +19,8 @@ export const buildPlugins = (
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(), // обновление изменений без refresh страницы
+        new ReactRefreshWebpackPlugin() // обновление изменений без refresh страницы
     ];
 };
