@@ -1,25 +1,26 @@
-import {Suspense} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
-import {UseTheme} from "shared/lib/theme/UseTheme";
-import AppRouter from "./providers/router/ui/AppRouter";
-import {NavBar} from "widgets/NavBar";
-import {SideBar} from "widgets/SideBar";
+import { Suspense } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { UseTheme } from 'shared/lib/theme/UseTheme';
+import { NavBar } from 'widgets/NavBar';
+import { SideBar } from 'widgets/SideBar';
+import Loader from 'shared/Loading/ui/Loading';
+import AppRouter from './providers/router/ui/AppRouter';
 
 const App = () => {
-    const {theme} = UseTheme();
+    const { theme } = UseTheme();
 
     return (
-        <Suspense fallback="loading">
+        <Suspense fallback={<Loader />}>
             <div
                 className={classNames({
-                    cls: "app",
+                    cls: 'app',
                     additional: [theme],
                 })}
             >
-                <NavBar/>
-                <div className='main-content'>
-                    <SideBar/>
-                    <AppRouter/>
+                <NavBar />
+                <div className="main-content">
+                    <SideBar />
+                    <AppRouter />
                 </div>
             </div>
         </Suspense>
