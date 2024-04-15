@@ -46,7 +46,18 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
         ],
     };
 
-    return [fileLoader, svgLoader, typeScriptLoader, styleLoader];
+    const babelLoader = {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+            },
+        },
+    };
+
+    return [fileLoader, babelLoader, svgLoader, typeScriptLoader, styleLoader];
 };
 
 //! Порядок лоудеров имеет значение
