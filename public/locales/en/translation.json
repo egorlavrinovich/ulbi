@@ -1,6 +1,9 @@
 {
-  "title": "Title",
-  "mainPage": "Main page",
-  "aboutPage": "About page",
-  "Страница не найдена": "Page not found"
+  "Загловок": "Title",
+  "Главная страница": "Main page",
+  "О сайте": "About page",
+  "Страница не найдена": "Page not found",
+  "Что-то пошло не так": "Something went wrong",
+  "Главная": "Main",
+  "Перезагрузить": "'Перезагрузить'"
 }

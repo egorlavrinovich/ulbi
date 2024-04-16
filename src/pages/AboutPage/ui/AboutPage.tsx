@@ -1,8 +1,6 @@
-import React from "react";
-import {t} from "i18next";
+import React from 'react';
+import { t } from 'i18next';
 
-const AboutPage = () => {
-    return <div>{t('aboutPage')}</div>;
-};
+const AboutPage = () => <div>{t('О сайте')}</div>;
 
 export default AboutPage;
