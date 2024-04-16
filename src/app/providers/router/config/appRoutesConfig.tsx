@@ -1,8 +1,8 @@
 import { appRoutesPaths } from 'shared/config/routes/routes';
-import MainPage from 'pages/MainPage/ui/MainPage';
-import AboutPage from 'pages/AboutPage/ui/AboutPage';
 import { PathRouteProps } from 'react-router-dom';
 import NotFoundPage from 'pages/NotFoundPage/ui/NotFoundPage';
+import { AboutPage } from 'pages/AboutPage';
+import { MainPage } from 'pages/MainPage';
 
 export const appRoutesConfig: PathRouteProps[] = [
     {

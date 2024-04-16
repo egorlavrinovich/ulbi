@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildPaths } from './types/config';
 
 export const buildPlugins = (path: BuildPaths, isDev: boolean): webpack.WebpackPluginInstance[] => [
@@ -19,4 +20,5 @@ export const buildPlugins = (path: BuildPaths, isDev: boolean): webpack.WebpackP
     }),
     new webpack.HotModuleReplacementPlugin(), // обновление изменений без refresh страницы
     new ReactRefreshWebpackPlugin(), // обновление изменений без refresh страницы
+    new BundleAnalyzerPlugin({ openAnalyzer: false }), // анализатор размера бандла
 ];
