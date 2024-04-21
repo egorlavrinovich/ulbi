@@ -1,7 +1,7 @@
 type Mods = Record<string, boolean | string>;
 
 interface IClassNames<T> {
-    cls: T;
+    cls?: T;
     mods?: Mods;
     additional?: string[];
 }

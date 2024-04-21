@@ -4,8 +4,8 @@ import Button from 'shared/Button/ui/Button';
 import styles from './PageError.module.scss';
 
 interface PageErrorProps {
-    error: Error,
-    resetErrorBoundary: () => void
+    error?: Error,
+    resetErrorBoundary?: () => void
 }
 
 function PageError({ error, resetErrorBoundary }: PageErrorProps) {
@@ -13,7 +13,7 @@ function PageError({ error, resetErrorBoundary }: PageErrorProps) {
     return (
         <div className={classNames({ cls: styles?.pageError })}>
             <p className={classNames({ cls: styles?.errorTitle })}>{t('Что-то пошло не так')}</p>
-            <p className={classNames({ cls: styles?.errorText })}>{`${t('Код ошибки')}: ${error.message}`}</p>
+            <p className={classNames({ cls: styles?.errorText })}>{`${t('Код ошибки')}: ${error?.message}`}</p>
             <Button onClick={resetErrorBoundary}>{t('Перезагрузить')}</Button>
         </div>
     );

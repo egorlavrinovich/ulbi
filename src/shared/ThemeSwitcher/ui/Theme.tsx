@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Button, { ThemeButton } from 'shared/Button/ui/Button';
 import { UseTheme } from 'shared/lib/theme/UseTheme';
 import { Theme } from 'shared/config/theme/ThemeContext';
-import classes from './theme.module.scss';
+import classes from './Theme.module.scss';
 import Light from '../../assets/light-mode.svg';
 import Dark from '../../assets/dark-mode.svg';
 

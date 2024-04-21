@@ -26,6 +26,10 @@
     }
   },
   "include": [
-    "./config/jest/setupTests.ts"
+    "./config/jest/setupTests.ts",
+    "src",
+    "app",
+    "types",
+    "declarations.d.ts"
   ]
 }

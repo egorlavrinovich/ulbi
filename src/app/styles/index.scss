@@ -4,6 +4,7 @@
 @import "./themes/light";
 
 .app {
+  width: 100vw;
   position: relative;
   font: var(--font-normal);
   background-color: var(--bg-color);
