@@ -5,9 +5,9 @@ name: CI
 # In this case the workflow will run on push for master and on pull request for master and develop branches
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   # This workflow contains a job called "integration"
