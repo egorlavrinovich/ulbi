@@ -26,22 +26,22 @@ type Story = StoryObj<typeof meta>;
 
 export const LinkPrimaryLight: Story = {
     args: {
-        theme: LinkTheme.PRIMARY,
+        theme: LinkTheme.INVERTED_PRIMARY,
     },
 };
 
 export const LinkSecondaryLight: Story = {
-    args: { theme: LinkTheme.SECONDARY },
+    args: { theme: LinkTheme.INVERTED_SECONDARY },
 };
 
 export const LinkPrimaryDark: Story = {
     args: {
-        theme: LinkTheme.PRIMARY,
+        theme: LinkTheme.INVERTED_PRIMARY,
     },
 };
 LinkPrimaryDark.decorators = [ThemeDecorartor(Theme.DARK)];
 
 export const LinkSecondaryDark: Story = {
-    args: { theme: LinkTheme.SECONDARY },
+    args: { theme: LinkTheme.INVERTED_SECONDARY },
 };
 LinkSecondaryDark.decorators = [ThemeDecorartor(Theme.DARK)];

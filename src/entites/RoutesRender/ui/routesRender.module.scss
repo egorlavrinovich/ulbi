@@ -1,0 +1,18 @@
+.routesRender {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.routesRenderBlock {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.routesNameHide {
+  display: none;
+}

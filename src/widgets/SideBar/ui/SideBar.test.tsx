@@ -1,19 +1,21 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
+import { renderWithRouter } from 'shared/config/tests/renderWithRouter';
 import SideBar from './SideBar';
 
 describe('SideBarTest', () => {
     test('Is exist SideBar', () => {
-        render(<SideBar />);
+        renderWithRouter(<SideBar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         screen.debug();
     });
     test('Is open and close SideBar', () => {
-        render(<SideBar />);
+        renderWithRouter(<SideBar />);
         const sideBar = screen.getByTestId('sidebar');
         expect(sideBar).toBeInTheDocument();
-        fireEvent.mouseEnter(sideBar);
+        const menuBurger = screen.getByTestId('menu-burger');
+        fireEvent.click(menuBurger);
         expect(sideBar).toHaveClass('active');
-        fireEvent.mouseLeave(sideBar);
+        fireEvent.click(menuBurger);
         expect(sideBar).toHaveClass('close');
     });
 });

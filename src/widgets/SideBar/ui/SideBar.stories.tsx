@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react';
 import { ThemeDecorartor } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { LOCAL_STORAGE_THEME_KEY, Theme } from 'shared/config/theme/ThemeContext';
+import { Theme } from 'shared/config/theme/ThemeContext';
+import { ProviderDecorator } from 'shared/config/storybook/ProviderDecorator/ProviderDecorator';
 import SideBar from './SideBar';
 
 const meta = {
@@ -15,17 +16,13 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-export const Primary: Story = {
-    args: {
-        children: 'Text',
-    },
-};
 
 export const SideBarLight: Story = {
     args: {},
 };
+SideBarLight.decorators = [ProviderDecorator];
 
 export const SideBarDark: Story = {
     args: {},
 };
-SideBarDark.decorators = [ThemeDecorartor(Theme.DARK)];
+SideBarDark.decorators = [ProviderDecorator, ThemeDecorartor(Theme.DARK)];
