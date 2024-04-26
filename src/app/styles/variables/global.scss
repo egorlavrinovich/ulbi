@@ -6,6 +6,9 @@
   --font-size-big: 24px;
   --font-line-big: 32px;
   --font-big: var(--font-size-big) / var(--font-line-big) var(--font-family-main);
+  --font-bigger: 32px;
+  --font-line-bigger: 40px;
+  --font-bigger: var(--font-size-bigger) / var(--font-line-bigger) var(--font-family-main);
 
   // Высота NavBar
   --navBar-height: 5vh;

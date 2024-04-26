@@ -4,27 +4,30 @@ import classes from './button.module.scss';
 
 export enum ThemeButton {
     CLEAR = 'clear',
-    OUTLINE = 'outline'
+    OUTLINE = 'outline',
+    PRIMARY = 'primary'
 }
 
-interface buttonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     className?: string,
     theme?: ThemeButton
 }
 
-const Button: FC<buttonProps> = ({
+const Button: FC<ButtonProps> = ({
     className, children, theme, ...props
 }) => (
-    <button
-        type="button"
-        className={classNames({
-            cls: classes?.button,
-            additional: [classes?.[theme], className],
-        })}
-        {...props}
-    >
-        {children}
-    </button>
+    <div className={classes.btnWrapper}>
+        <button
+            type="button"
+            className={classNames({
+                cls: classes?.button,
+                additional: [classes?.[theme], className],
+            })}
+            {...props}
+        >
+            {children}
+        </button>
+    </div>
 );
 
 export default Button;

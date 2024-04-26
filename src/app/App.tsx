@@ -7,6 +7,8 @@ import Loader from 'shared/Loading/ui/Loading';
 import { PageError } from 'shared/PageError/ui/PageError';
 import { ErrorBoundary } from 'react-error-boundary';
 import AppRouter from './providers/router/ui/AppRouter';
+import Modal from 'shared/Modal/ui/Modal';
+import { ThemeButton } from 'shared/Button/ui/Button';
 
 const App = () => {
     const { theme } = UseTheme();

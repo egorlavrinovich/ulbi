@@ -1,5 +1,14 @@
+.btnWrapper{
+  :hover{
+    transition: all 0.3s;
+    opacity: 0.7;
+  }
+}
 .button {
+  padding: 1% 2%;
   cursor: pointer;
+  font: var(--font-normal);
+  border-radius: 5px;
 }
 
 .clear {
@@ -11,7 +20,16 @@
 }
 
 .outline {
-  padding: 0.5% 1%;
   border: 1px solid var(--inverted-color);
   color: var(--primary-color);
+}
+
+.primary{
+  border: 1px solid var(--inverted-color);
+  background-color: var(--inverted-color-pale);
+  color: var(--bg-color);
+  :hover{
+    background-color: black;
+    opacity: 0.7;
+  }
 }
