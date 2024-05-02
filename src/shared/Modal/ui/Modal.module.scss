@@ -1,16 +1,17 @@
 .overlay {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.26);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(0 0 0 / 26%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.modal{
+
+.modal {
   position: absolute;
   background-color: var(--bg-color);
   min-width: 20%;
@@ -18,56 +19,73 @@
   border-radius: 10px;
   padding: 0 5px;
 }
-.open{
+
+.open {
+  opacity: 0;
+  animation: open-ani 0.3s forwards;
+  z-index: 2;
+}
+
+.close {
+  animation: close-ani 0.3s forwards;
+  pointer-events: none;
+  transition: all 0.3s; // нужен для анимации при закрытии окна
+  z-index: -1;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  font: var(--font-big);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(128 128 128 / 58.2%);
+  padding: 0.5% 2%;
+}
+
+.modalHeaderCross {
+  width: 0.6em;
+  fill: var(--primary-color);
+  transition: all 0.3s;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.7;
+  }
+}
+
+.modalHeaderTitle {
+  font: var(--font-normal);
+  font-weight: 700;
+  align-self: center;
+}
+
+.modalContent {
+  padding: 0.5% 2%;
+  min-height: 5vh;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: end;
+  padding: 5px 10px 15px;
+}
+
+@keyframes open-ani {
+  0% {
     opacity: 0;
-    animation: openAni .3s forwards;
-    z-index: 2;
-}
-.close{
+  }
+
+  100% {
     opacity: 1;
-    animation: closeAni .3s forwards;
-    pointer-events: none;
-    z-index: -1;
-}
-.modalHeader{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px 5px 2px;
-    font-weight: bold;
-    font: var(--font-big);
-    border-bottom: 1px solid rgba(128, 128, 128, 0.582);
-    padding: 0.5% 2%;
-}
-.modalHeaderCross{
-    width: 0.6em;
-    fill: var(--primary-color);
-    transition: all 0.3s;
-    cursor: pointer;
-    :hover{
-        opacity: 0.7;
-    }
-}
-.modalHeaderTitle{
-    font: var(--font-normal);
-    font-weight: 700;
-    align-self: center;
-}
-.modalContent{
-    padding: 0.5% 2%;
-    min-height: 5vh;
-}
-.modalActions{
-    display: flex;
-    justify-content: end;
-    padding: 5px 10px 15px 10px;
+  }
 }
 
-@keyframes openAni {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+@keyframes close-ani {
+  0% {
+    opacity: 1;
   }
 
-  @keyframes closeAni {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+  100% {
+    opacity: 0;
   }
+}
