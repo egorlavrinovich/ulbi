@@ -31,9 +31,31 @@ export const Clear: Story = {
     },
 };
 
+export const InvertedClear: Story = {
+    args: {
+        children: 'Text',
+        theme: ThemeButton.INVERTED_CLEAR,
+    },
+};
+
 export const OutLine: Story = {
     args: {
         children: 'Text',
         theme: ThemeButton.OUTLINE,
     },
 };
+
+export const SecondaryLight: Story = {
+    args: {
+        children: 'Text',
+        theme: ThemeButton.SECONDARY,
+    },
+};
+
+export const SecondaryDark: Story = {
+    args: {
+        children: 'Text',
+        theme: ThemeButton.SECONDARY,
+    },
+};
+SecondaryDark.decorators = [ThemeDecorartor(Theme.DARK)];

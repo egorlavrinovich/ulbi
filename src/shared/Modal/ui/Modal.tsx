@@ -3,6 +3,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Cross from 'shared/assets/cross.svg';
 import Button, { ThemeButton, ButtonProps } from 'shared/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
+import Portal from 'shared/Portal/ui/Portal';
+import i18n from 'i18next';
 import classes from './Modal.module.scss';
 
 interface BtnProps extends ButtonProps {
@@ -18,13 +20,18 @@ interface ModalProps {
     title?: string
     openBtn?: BtnProps
     footerBtn?: React.ReactElement[]
-    defaultBtn?: boolean,
+    defaultBtn?: BtnProps,
     onOk?: HandleProps
     onCancel?: HandleProps
+    isPortal?: boolean
 }
 
 const Modal: FC<ModalProps> = ({
-    title = 'Заголовок', openBtn, footerBtn, defaultBtn = true,
+    title = i18n.t('translation:Title'),
+    openBtn,
+    footerBtn,
+    defaultBtn = {},
+    isPortal = true,
 }) => { // TODO дописать кастомные кнопки
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
@@ -47,31 +54,43 @@ const Modal: FC<ModalProps> = ({
     return (
         <>
             <Button onClick={onHandleOpen} {...openBtn}>{openBtn?.btnName}</Button>
-            <div
-                ref={modalRef}
-                onClick={onHandleClose}
-                className={classNames({ cls: classes.overlay, mods: { [classes.open]: isOpen, [classes.close]: !isOpen } })}
-            >
+            <Portal isPortal={isPortal}>
                 <div
-                    onClick={onContentClick}
+                    ref={modalRef}
+                    onClick={onHandleClose}
                     className={classNames({
-                        cls: classes.modal,
+                        cls: classes.overlay,
                         mods: { [classes.open]: isOpen, [classes.close]: !isOpen },
                     })}
                 >
-                    <div className={classNames({ cls: classes.modalHeader })}>
-                        <div className={classNames({ cls: classes.modalHeaderTitle })}>{title}</div>
-                        <div onClick={onHandleClose} className={classNames({ cls: classes.modalHeaderCross })}>
-                            <Cross />
+                    <div
+                        onClick={onContentClick}
+                        className={classNames({
+                            cls: classes.modal,
+                            mods: { [classes.open]: isOpen, [classes.close]: !isOpen },
+                        })}
+                    >
+                        <div className={classNames({ cls: classes.modalHeader })}>
+                            <div className={classNames({ cls: classes.modalHeaderTitle })}>{title}</div>
+                            <div onClick={onHandleClose} className={classNames({ cls: classes.modalHeaderCross })}>
+                                <Cross />
+                            </div>
+                        </div>
+                        <div className={classNames({ cls: classes.modalContent })} />
+                        <div className={classNames({ cls: classes.modalActions })}>
+                            {footerBtn && footerBtn?.map((btn) => btn)}
+                            {!footerBtn && (
+                                <Button
+                                    theme={defaultBtn.theme || ThemeButton.PRIMARY}
+                                    {...defaultBtn}
+                                >
+                                    {defaultBtn?.btnName || t('Save')}
+                                </Button>
+                            )}
                         </div>
                     </div>
-                    <div className={classNames({ cls: classes.modalContent })} />
-                    <div className={classNames({ cls: classes.modalActions })}>
-                        {!defaultBtn && footerBtn?.map((btn) => btn)}
-                        {defaultBtn && <Button theme={ThemeButton.PRIMARY}>{t('Save')}</Button>}
-                    </div>
                 </div>
-            </div>
+            </Portal>
         </>
     );
 };

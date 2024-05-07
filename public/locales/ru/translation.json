@@ -1,5 +1,11 @@
 {
-  "title": "Заголовок",
+  "Title": "Заголовок",
   "About": "О сайте",
-  "Main": "Главная"
+  "Main": "Главная",
+  "Page not found": "Страница не найдена",
+  "Something went wrong": "Что-то пошло не так",
+  "Main": "Главная",
+  "Reload": "'Перезагрузить'",
+  "Save": "Сохранить",
+  "mainpage": "MainPage"
 }

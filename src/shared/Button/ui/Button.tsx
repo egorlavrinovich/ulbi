@@ -5,7 +5,9 @@ import classes from './button.module.scss';
 export enum ThemeButton {
     CLEAR = 'clear',
     OUTLINE = 'outline',
-    PRIMARY = 'primary'
+    SECONDARY = 'secondary',
+    PRIMARY = 'primary',
+    INVERTED_CLEAR = 'inverted-clear'
 }
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {

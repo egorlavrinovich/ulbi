@@ -1,12 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next'; 3
-import Modal from 'shared/Modal/ui/Modal';
-import { ThemeButton } from 'shared/Button/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 const MainPage = () => {
     const { t } = useTranslation();
 
-    return <Modal openBtn={{ btnName: 'Открыть', theme: ThemeButton.PRIMARY }} />
+    return <div>{t('translation:mainpage')}</div>;
 };
 
 export default MainPage;
