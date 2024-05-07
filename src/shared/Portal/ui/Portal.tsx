@@ -3,18 +3,20 @@ import { createPortal } from 'react-dom';
 
 interface PortalProps {
     element?: Element | DocumentFragment
-    isPortal: boolean
+    isPortal?: boolean
 }
 
-const mainContainer = document.getElementsByClassName('app')[0];
+const Portal: FC<PortalProps> = ({
+    children,
+    element,
+    isPortal,
+}) => {
+    const mainContainer = document.getElementsByClassName('app')[0];
 
-const Portal: FC<PortalProps> = ({ children, element = mainContainer, isPortal }) => (
-    <>
-        {isPortal ? createPortal(
-            children,
-            element,
-        ) : children}
-    </>
-);
+    return isPortal ? createPortal(
+        children,
+        element || mainContainer,
+    ) : <>{element}</>;
+};
 
 export default Portal;
