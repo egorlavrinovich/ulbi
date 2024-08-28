@@ -1,15 +1,27 @@
 :root {
   --font-family-main: consolas, "Times New Roman", serif;
+  --font-size-extra-small: 12px;
+  --font-line-extra-small: 18px;
+  --font-extra-small: var(--font-size-extra-small) / var(--font-line-extra-small) var(--font-family-main);
+  --font-size-smaller: 12px;
+  --font-line-smaller: 20px;
+  --font-smaller: var(--font-size-smaller) / var(--font-line-smaller) var(--font-family-main);
+  --font-size-small: 14px;
+  --font-line-small: 22px;
+  --font-small: var(--font-size-small) / var(--font-line-small) var(--font-family-main);
   --font-size-normal: 16px;
   --font-line-normal: 24px;
   --font-normal: var(--font-size-normal) / var(--font-line-normal) var(--font-family-main);
   --font-size-big: 24px;
   --font-line-big: 32px;
   --font-big: var(--font-size-big) / var(--font-line-big) var(--font-family-main);
-  --font-bigger: 32px;
+  --font-size-bigger: 32px;
   --font-line-bigger: 40px;
   --font-bigger: var(--font-size-bigger) / var(--font-line-bigger) var(--font-family-main);
 
   // Высота NavBar
   --navBar-height: 5vh;
+
+  // Цвета ошибок
+  --fatal-error: red;
 }

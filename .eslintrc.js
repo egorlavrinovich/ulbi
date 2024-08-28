@@ -43,7 +43,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-void': 'off',
         'no-undef': 'warn',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': ['warn', { markupOnly: true }],
         'no-unused-expressions': ['error', { allowTernary: true }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

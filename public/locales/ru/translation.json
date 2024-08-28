@@ -7,5 +7,6 @@
   "Main": "Главная",
   "Reload": "'Перезагрузить'",
   "Save": "Сохранить",
-  "mainpage": "MainPage"
+  "mainpage": "Главная страница",
+  "Authorization": "Авторизация"
 }

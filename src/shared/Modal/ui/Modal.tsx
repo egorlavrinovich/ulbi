@@ -23,7 +23,8 @@ interface ModalProps {
     defaultBtn?: BtnProps,
     onOk?: HandleProps
     onCancel?: HandleProps
-    isPortal?: boolean
+    isPortal?: boolean,
+    destroy?: boolean
 }
 
 const Modal: FC<ModalProps> = ({
@@ -32,20 +33,24 @@ const Modal: FC<ModalProps> = ({
     footerBtn,
     defaultBtn = {},
     isPortal = true,
+    destroy = false,
+    children,
 }) => { // TODO дописать кастомные кнопки
     const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
+    const [isDestroy, setIsDestroy] = useState<boolean>(true);
     const modalRef = useRef<HTMLDivElement>();
 
     const onHandleClose = () => {
         setIsOpen(false);
         setTimeout(() => {
             modalRef.current.style.display = 'none';
+            if (destroy) setIsDestroy(false);
         }, 300);
     };
 
     const onHandleOpen = () => {
-        modalRef.current.style.display = 'flex';
+        if (destroy) setIsDestroy(true);
         setIsOpen(true);
     };
     const onContentClick = (e: React.MouseEvent) => {
@@ -54,43 +59,48 @@ const Modal: FC<ModalProps> = ({
     return (
         <>
             <Button onClick={onHandleOpen} {...openBtn}>{openBtn?.btnName}</Button>
-            <Portal isPortal={isPortal}>
-                <div
-                    ref={modalRef}
-                    onClick={onHandleClose}
-                    className={classNames({
-                        cls: classes.overlay,
-                        mods: { [classes.open]: isOpen, [classes.close]: !isOpen },
-                    })}
-                >
+            {isDestroy && (
+                <Portal isPortal={isPortal}>
                     <div
-                        onClick={onContentClick}
+                        ref={modalRef}
+                        onClick={onHandleClose}
                         className={classNames({
-                            cls: classes.modal,
+                            cls: classes.overlay,
                             mods: { [classes.open]: isOpen, [classes.close]: !isOpen },
                         })}
                     >
-                        <div className={classNames({ cls: classes.modalHeader })}>
-                            <div className={classNames({ cls: classes.modalHeaderTitle })}>{title}</div>
-                            <div onClick={onHandleClose} className={classNames({ cls: classes.modalHeaderCross })}>
-                                <Cross />
+                        <div
+                            onClick={onContentClick}
+                            className={classNames({
+                                cls: classes.modal,
+                                mods: { [classes.open]: isOpen, [classes.close]: !isOpen },
+                            })}
+                        >
+                            <div className={classNames({ cls: classes.modalHeader })}>
+                                <div className={classNames({ cls: classes.modalHeaderTitle })}>{title}</div>
+                                <div
+                                    onClick={onHandleClose}
+                                    className={classNames({ cls: classes.modalHeaderCross })}
+                                >
+                                    <Cross />
+                                </div>
+                            </div>
+                            <div className={classNames({ cls: classes.modalContent })}>{children}</div>
+                            <div className={classNames({ cls: classes.modalActions })}>
+                                {footerBtn && footerBtn?.map((btn) => btn)}
+                                {!footerBtn && (
+                                    <Button
+                                        theme={defaultBtn.theme || ThemeButton.PRIMARY}
+                                        {...defaultBtn}
+                                    >
+                                        {defaultBtn?.btnName || t('Save')}
+                                    </Button>
+                                )}
                             </div>
                         </div>
-                        <div className={classNames({ cls: classes.modalContent })} />
-                        <div className={classNames({ cls: classes.modalActions })}>
-                            {footerBtn && footerBtn?.map((btn) => btn)}
-                            {!footerBtn && (
-                                <Button
-                                    theme={defaultBtn.theme || ThemeButton.PRIMARY}
-                                    {...defaultBtn}
-                                >
-                                    {defaultBtn?.btnName || t('Save')}
-                                </Button>
-                            )}
-                        </div>
                     </div>
-                </div>
-            </Portal>
+                </Portal>
+            )}
         </>
     );
 };

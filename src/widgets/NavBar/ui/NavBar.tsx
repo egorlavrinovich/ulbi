@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Modal from 'shared/Modal/ui/Modal';
 import { ThemeButton } from 'shared/Button/ui/Button';
 import React from 'react';
+import { LoginModal } from 'features/AuthByUserName';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
@@ -13,7 +14,7 @@ const NavBar = () => {
 
     return (
         <div className={classNames({ cls: styles.navbar_links })}>
-            <Modal defaultBtn={{ btnName: 'Войти' }} openBtn={{ btnName: 'Войти', theme: ThemeButton.INVERTED_CLEAR }} />
+            <LoginModal />
         </div>
     );
 };

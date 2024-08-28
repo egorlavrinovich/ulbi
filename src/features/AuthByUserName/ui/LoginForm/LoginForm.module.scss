@@ -1,0 +1,12 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding-left: 5px;
+  margin: 1vh;
+}
+
+.labelTitle {
+  font: var(--font-small);
+}

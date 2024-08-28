@@ -1,0 +1,19 @@
+.errorMessage {
+  opacity: 0;
+  animation: ani 0.3s forwards;
+  font: var(--font-extra-small);
+}
+
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fatal {
+  color: var(--fatal-error);
+}

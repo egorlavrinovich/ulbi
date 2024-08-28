@@ -16,7 +16,7 @@ const Portal: FC<PortalProps> = ({
     return isPortal ? createPortal(
         children,
         element || mainContainer,
-    ) : <>{element}</>;
+    ) : <>{children}</>;
 };
 
 export default Portal;
