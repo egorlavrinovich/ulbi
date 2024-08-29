@@ -21,8 +21,8 @@
   "users": [
     {
       "id": 1,
-      "username": "admin",
-      "password": "123"
+      "userName": "admin",
+      "userPassword": "123"
     }
   ],
   "profile": {

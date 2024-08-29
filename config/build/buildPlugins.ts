@@ -21,4 +21,7 @@ export const buildPlugins = (path: BuildPaths, isDev: boolean): webpack.WebpackP
     new webpack.HotModuleReplacementPlugin(), // обновление изменений без refresh страницы
     isDev && new ReactRefreshWebpackPlugin(), // обновление изменений без refresh страницы
     new BundleAnalyzerPlugin({ openAnalyzer: false }), // анализатор размера бандла
+    new webpack.ProvidePlugin({
+        process: 'process/browser',
+    }),
 ].filter(Boolean);

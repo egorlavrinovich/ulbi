@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Cross from 'shared/assets/cross.svg';
-import Button, { ThemeButton, ButtonProps } from 'shared/Button/ui/Button';
+import Button, { ButtonProps, ThemeButton } from 'shared/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 import Portal from 'shared/Portal/ui/Portal';
 import i18n from 'i18next';

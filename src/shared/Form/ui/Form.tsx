@@ -49,7 +49,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>(({
                 }), {});
                 return data;
             }
-            return Promise.reject;
+            return [];
         },
     }));
 

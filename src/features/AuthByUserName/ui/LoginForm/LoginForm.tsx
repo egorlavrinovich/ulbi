@@ -1,6 +1,4 @@
-import React, {
-    forwardRef, Ref, useEffect, useImperativeHandle, useRef, useState,
-} from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Input } from 'shared/Input/ui/Input';
 import FormItem from 'shared/Form/ui/FormItem';
@@ -32,7 +30,7 @@ const LoginForm = (props: LoginFormProps, ref: Ref<RefType>) => (
             <FormItem
                 key="userPassword"
                 name="userPassword"
-                rules={[{ minLength: 6, message: 'Больше 6-ти символов' }, { required: true }]}
+                rules={[{ minLength: 2, message: 'Больше 2-x символов' }, { required: true }]}
             >
                 <Input
                     type="password"
